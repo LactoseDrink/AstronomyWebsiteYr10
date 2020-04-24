@@ -1,0 +1,62 @@
+//thank you for reading my 
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> //import MathJax
+</head>
+<body>
+<div class = "calculator">
+<h2>Will Hopkins</h2>
+$E = mc^2$
+<p>
+m = <input id = "minput" value = "1"  onchange = "computeE();"></input>kg
+<p>
+E = <input id = "Einput"  onchange = "computem()"></input>J
+<p>
+</div>
+<script>
+
+computeE();// without this, "E" is empty with first load
+function computeE(){
+	m = document.getElementById("minput").value;
+	c = 3e8; //speed of light in m/s
+	E = m*c*c;// actual math bit
+	document.getElementById("Einput").value = E.toExponential();//get value from input
+}
+function computem(){
+	E = document.getElementById("Einput").value;
+	c = 3e8;
+	m = E/(c*c);//Changed so m=e not e=m
+	document.getElementById("minput").value = m;
+}
+
+
+</script>
+<style>
+
+html {
+	height: 100%;
+	background: black;
+	background-size: cover;
+}
+
+.calculator{
+	width: auto;
+	height: auto;
+	border-style: solid;
+	border-width: 5px;
+	border-color: blue;
+	border-radius: 15px;
+	padding: 5px 5px 5px 5px;
+	margin: 5px 5px 5px 5px;
+	background: white;	
+	font-size: 14px;
+	font-family: "Century Schoolbook";
+	text-align: left;
+	float:left;
+}
+
+</style>
+
+</body>
+</html>
